@@ -16,4 +16,9 @@
 
 #define PORT 8080
 
+/**
+ * @brief      Function creates RTOS task that initializes udp server for ipv4.
+ *
+ * @param      pvParameters  The pv parameters is empty.
+ */
 void udp_server_task(void *pvParameters);

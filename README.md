@@ -1,6 +1,4 @@
-# Project Title
-
-Audio Relay on ESP32
+# Audio Relay on ESP32
 
 ## Project Description
 

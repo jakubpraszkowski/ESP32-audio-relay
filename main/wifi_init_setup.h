@@ -10,6 +10,7 @@
 #include "driver/gpio.h"
 #include <stdio.h>
 
+
 #define DEFAULT_SSID "24link24"
 #define DEFAULT_PWD "Link_gr3g_wifi"
 
@@ -26,6 +27,13 @@
 
 void event_handler(void* arg, esp_event_base_t event_base,
                                 int32_t event_id, void* event_data);
+
+/**
+ * @brief      Function initializes wifi module in station mode and power save mode.
+ */
 void wifi_power_save(void);
 
+/**
+ * @brief      Function sets gpio (LED) and sets it to 1 when the connection to wifi is valid.
+ */
 void wifi_status();
