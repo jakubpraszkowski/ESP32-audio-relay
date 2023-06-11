@@ -1,6 +1,6 @@
 #include "wifi_init_setup.h"
 
-static const char *TAG = "power_save";
+static const char *TAG_PS = "power_save";
 
 void event_handler(void* arg, esp_event_base_t event_base,
                                 int32_t event_id, void* event_data)
@@ -11,7 +11,7 @@ void event_handler(void* arg, esp_event_base_t event_base,
         esp_wifi_connect();
     } else if (event_base == IP_EVENT && event_id == IP_EVENT_STA_GOT_IP) {
         ip_event_got_ip_t* event = (ip_event_got_ip_t*) event_data;
-        ESP_LOGI(TAG, "got ip: " IPSTR, IP2STR(&event->ip_info.ip));
+        ESP_LOGI(TAG_PS, "got ip: " IPSTR, IP2STR(&event->ip_info.ip));
     }
 }
 
@@ -42,7 +42,7 @@ void wifi_power_save(void)
     wifi_status();
     ESP_ERROR_CHECK(esp_wifi_set_inactive_time(WIFI_IF_STA, DEFAULT_BEACON_TIMEOUT));
 
-    ESP_LOGI(TAG, "esp_wifi_set_ps().");
+    ESP_LOGI(TAG_PS, "esp_wifi_set_ps().");
     esp_wifi_set_ps(DEFAULT_PS_MODE);
 }
 
