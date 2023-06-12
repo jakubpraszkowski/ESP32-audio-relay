@@ -25,6 +25,15 @@
 #define DEFAULT_PS_MODE WIFI_PS_NONE
 #endif /*CONFIG_POWER_SAVE_MODEM*/
 
+
+/**
+ * @brief      The function then checks the event base and event ID to determine which event occurred. 
+ *
+ * @param      arg         Not used
+ * @param[in]  event_base  The event base is a unique identifier for a specific event category (WIFI_EVENT or IP_EVENT)
+ * @param[in]  event_id    This parameter represents the specific event that occurred within the given event base
+ * @param      event_data  This is a generic pointer to event-specific data associated with the event. In this function, vent_data is expected to be a pointer to the ip_event_got_ip_t structure, which contains information about the obtained IP address.
+ */
 void event_handler(void* arg, esp_event_base_t event_base,
                                 int32_t event_id, void* event_data);
 
@@ -36,4 +45,4 @@ void wifi_power_save(void);
 /**
  * @brief      Function sets gpio (LED) and sets it to 1 when the connection to wifi is valid.
  */
-void wifi_status();
+void wifi_status(void);

@@ -46,7 +46,7 @@ void wifi_power_save(void)
     esp_wifi_set_ps(DEFAULT_PS_MODE);
 }
 
-void wifi_status() {
+void wifi_status(void) {
 	gpio_reset_pin(2);
 	gpio_set_direction(2, GPIO_MODE_OUTPUT);
 
