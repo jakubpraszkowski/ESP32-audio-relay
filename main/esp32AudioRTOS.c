@@ -63,10 +63,10 @@ void app_main(void)
     ESP_ERROR_CHECK(dac_continuous_enable(dac_handle));
     ESP_LOGI("audio", "DAC initialized success, DAC DMA is ready");
 
-    size_t audio_size = sizeof(audio_table);
+    size_t audio_size = sizeof(get_audio_file_ptr());
 
     ESP_ERROR_CHECK(dac_continuous_start_async_writing(dac_handle));
-    dac_write_data_asynchronously(dac_handle, que, (uint8_t *)audio_table, audio_size);
+    dac_write_data_asynchronously(dac_handle, que, (uint8_t *)get_audio_file_ptr(), audio_size);
 
     
 	// while(true){}
